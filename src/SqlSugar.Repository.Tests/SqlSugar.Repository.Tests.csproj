@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net462;net6.0;</TargetFrameworks>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+	<ItemGroup>
+	  <None Remove="App.config" />
+	  <None Remove="net6.config" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="App.config">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="net6.config">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
+		<PackageReference Include="NUnit" Version="3.13.3" />
+		<PackageReference Include="NUnit.Runners" Version="3.12.0" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+		<PackageReference Include="NUnit.Analyzers" Version="3.6.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="coverlet.collector" Version="3.1.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="net6.config" Link="testhost.dll.config" Condition=" '$(TargetFramework)' == 'net6.0' ">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SqlSugar.Repository\SqlSugar.Repository.csproj" />
+	</ItemGroup>
+
+</Project>

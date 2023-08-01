@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net462;net6.0;</TargetFrameworks>
+		<OutputType>Library</OutputType>
+		<PackageId>SqlSugar.Repository</PackageId>
+		<Version>1.0.0</Version>
+		<PackageTags>sog</PackageTags>
+		<Authors>sog</Authors>
+		<Description>SqlSugarDbContext封装</Description>
+		<PackageProjectUrl>https://github.com/yxou/SqlSugar.Repository</PackageProjectUrl>
+		<PackageReleaseNotes>
+			v1.0.0
+			1. 封装DbContext，实现更改表名
+		</PackageReleaseNotes>
+	</PropertyGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' != 'net462' ">
+		<PackageReference Include="SqlSugarCore" Version="5.1.4.93" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
+		<PackageReference Include="SqlSugar" Version="5.1.4.93" />
+		<PackageReference Include="MySql.Data" Version="8.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+	  <PackageReference Include="MySqlConnector" Version="2.2.5" />
+	</ItemGroup>
+</Project>

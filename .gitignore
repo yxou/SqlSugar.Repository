@@ -1,0 +1,8 @@
+*.vssscc
+*.vspscc
+bin/
+obj/
+*.user
+*.nupkg
+.vs/
+TestResults/
